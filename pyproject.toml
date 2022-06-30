@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "beer_forecast"
+version = "0.1.0"
+description = ""
+authors = ["Gian <gianluca.petini@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+scikit-learn = "^1.1.1"
+pandas = "^1.4.3"
+plotly-express = "^0.4.1"
+numpy = "^1.23.0"
+joblib = "^1.1.0"
+pydantic = "^1.9.1"
+envyaml = "^1.10.211231"
+Flask = "^2.1.2"
+loguru = "^0.6.0"
+
+[tool.poetry.dev-dependencies]
+jupyter = "^1.0.0"
+notebook = "^6.4.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

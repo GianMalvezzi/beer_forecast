@@ -1,0 +1,45 @@
+model_param:
+  SVR:
+    C: [1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5]
+    kernel: [linear]
+    gamma: [scale, auto]
+    shrinking: [True, False]
+  RFR:
+    n_estimators: [100,150,200,250,300,350,400,450,500]
+    max_depth: [null, 1,2,3,4,5,6,7,8,9,10]
+    min_samples_split: [1,2,3,4,5,6,7,8,9,10]
+    min_samples_leaf: [1,2,3,4,5,6,7,8,9,10]
+    max_features: [sqrt, log2, null]
+
+scoring: roc_auc
+
+package_name: model
+
+rfr_pipeline: beer_pipeline_RFR
+svr_pipeline: beer_pipeline_SVR
+lr_pipeline: beer_pipeline_LR
+
+rfr_pipeline_save_file: beer_pipeline_RFR_output
+svr_pipeline_save_file: beer_pipeline_SVR_output
+lr_pipeline_save_file: beer_pipeline_LR_output
+
+beer_data: consumo_cerveja.csv
+
+holidays_data: holidays.csv
+
+features: [min_temp, max_temp, rainfall, is_weekend, is_holiday]
+
+target: beer_consumption
+
+variables_to_rename:
+  Data: date
+  Temperatura Media (C): avg_temp
+  Temperatura Minima (C): min_temp
+  Temperatura Maxima (C): max_temp
+  Precipitacao (mm): rainfall
+  Final de Semana: is_weekend
+  Consumo de cerveja (litros): beer_consumption
+
+test_size: 0.2
+
+seed: 8
